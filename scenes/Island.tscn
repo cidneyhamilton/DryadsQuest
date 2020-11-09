@@ -34,4 +34,6 @@ animation = "dead"
 
 [node name="Plant" parent="." instance=ExtResource( 2 )]
 gravity = 0.0
+[connection signal="spell_finished" from="." to="Plant" method="_on_Island_spell_finished"]
 [connection signal="resurrected" from="Plant" to="." method="_on_Plant_resurrected"]
+[connection signal="targeted" from="Plant" to="." method="_on_Plant_targeted"]

@@ -13,4 +13,6 @@ centered = false
 
 [node name="Island" parent="." instance=ExtResource( 2 )]
 position = Vector2( 166, 90 )
+[connection signal="spell_finished" from="." to="Island" method="_on_Lagoon_spell_finished"]
 [connection signal="plant_resurrected" from="Island" to="." method="_on_Island_plant_resurrected"]
+[connection signal="plant_targeted" from="Island" to="." method="_on_Island_plant_targeted"]

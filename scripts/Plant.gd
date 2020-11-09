@@ -1,8 +1,9 @@
 extends Area2D
 
+signal targeted
 signal resurrected
 
-enum { DEAD, ALIVE}
+enum { DEAD, RESURRECTING, ALIVE}
 
 var state = DEAD
 
@@ -15,13 +16,12 @@ func _input_event(viewport, event, shape_idx):
 		
 func on_click():
 	# TODO: check state of plant's island to make sure it can be resurrected
-	resurrect()
+	if state == DEAD:
+		state = RESURRECTING
+		emit_signal("targeted")
 	
 func resurrect():
-	if state == ALIVE:
-		# do nothing, plant was already resurrected
-		pass
-	else:
+	if state == RESURRECTING:
 		state = ALIVE
 		sound.play()
 		animator.play("grow")
@@ -33,3 +33,6 @@ func _on_PlantSprite_animation_finished():
 	if (animator.animation == "grow"):
 		animator.animation = "live"
 		emit_signal("resurrected")
+
+func _on_Island_spell_finished():
+	resurrect()
