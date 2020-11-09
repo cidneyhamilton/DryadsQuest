@@ -19,6 +19,10 @@ config/name="DryadsQuest"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Main="*res://scripts/Main.gd"
+
 [display]
 
 window/size/width=320
