@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Background320x180.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Island.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Lagoon.gd" type="Script" id=3]
 
 [node name="Lagoon" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Sky" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Island" parent="." instance=ExtResource( 2 )]
-position = Vector2( 156, 82 )
+position = Vector2( 166, 90 )
+[connection signal="plant_resurrected" from="Island" to="." method="_on_Island_plant_resurrected"]

@@ -1,40 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/Mangrove.png" type="Texture" id=1]
-
-[sub_resource type="GDScript" id=17]
-script/source = "extends Area2D
-
-const DEAD = 0
-const ALIVE = 1
-
-var state = DEAD
-
-onready var animator = get_node(\"PlantSprite\")
-	
-func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
-		self.on_click()
-		
-func on_click():
-	# TODO: check state of plant's island to make sure it can be resurrected
-	resurrect()
-	
-func resurrect():
-	if state == ALIVE:
-		# do nothing, plant was already resurrected
-		pass
-	else:
-		state = ALIVE
-		animator.play(\"grow\")
-		# TODO: Play a sound effect
-		# TODO: Dialogue event
-
-# After the growing animation is finished, the plant remains alive
-func _on_PlantSprite_animation_finished():
-	if (animator.animation == \"grow\"):
-		animator.animation = \"live\"
-"
+[ext_resource path="res://assets/powerup.wav" type="AudioStream" id=2]
+[ext_resource path="res://scripts/Plant.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -97,7 +65,7 @@ animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "grow",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [ SubResource( 13 ) ],
 "loop": true,
@@ -115,10 +83,11 @@ radius = 4.37725
 height = 4.19147
 
 [node name="Plant" type="Area2D"]
-script = SubResource( 17 )
+script = ExtResource( 3 )
 
 [node name="PlantSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.0441952, 0 )
+z_index = 1
 frames = SubResource( 15 )
 animation = "dead"
 playing = true
@@ -127,4 +96,7 @@ playing = true
 position = Vector2( -2.37841, 2.97302 )
 rotation = 1.5708
 shape = SubResource( 16 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
 [connection signal="animation_finished" from="PlantSprite" to="." method="_on_PlantSprite_animation_finished"]

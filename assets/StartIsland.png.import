@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Islands.png-cd6e1cc43d673fa286fea8367b3bb17a.stex"
+path="res://.import/StartIsland.png-65116334802f7983d76d525d7f43b9bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Islands.png"
-dest_files=[ "res://.import/Islands.png-cd6e1cc43d673fa286fea8367b3bb17a.stex" ]
+source_file="res://assets/StartIsland.png"
+dest_files=[ "res://.import/StartIsland.png-65116334802f7983d76d525d7f43b9bb.stex" ]
 
 [params]
 
