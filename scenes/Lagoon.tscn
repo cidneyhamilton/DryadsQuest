@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Background320x180.png" type="Texture" id=1]
-[ext_resource path="res://scenes/islands/Island.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/islands/Island2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Lagoon.gd" type="Script" id=3]
 [ext_resource path="res://scenes/islands/StartIsland.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/islands/Island1.tscn" type="PackedScene" id=5]
 
 [node name="Lagoon" type="Node2D"]
 script = ExtResource( 3 )
@@ -12,8 +13,11 @@ script = ExtResource( 3 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="Island" parent="." instance=ExtResource( 2 )]
-position = Vector2( 166, 90 )
-
 [node name="StartIsland" parent="." instance=ExtResource( 4 )]
 position = Vector2( 166, 90 )
+
+[node name="Island1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 89, 82 )
+
+[node name="Island2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 101, 112 )
