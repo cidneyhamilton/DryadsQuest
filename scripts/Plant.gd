@@ -40,7 +40,7 @@ func on_click():
 	# TODO: check state of plant's island to make sure it can be resurrected
 	var island = get_parent()
 	if island.is_unavailable():
-		print("Island out of range")
+		Main.emit_signal("started_speaking", "I can't reach those islands.")
 	elif state == RESURRECTING:
 		print("Plant being clicked is being resurrected.")
 	elif island.is_dead():
