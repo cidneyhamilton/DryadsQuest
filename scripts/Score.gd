@@ -13,7 +13,6 @@ func _on_plant_resurrected():
 func update_score():
 	value += 1
 	
-	
 	$Label.text = "Score: " + str(value) + " out of " + str(max_value)
 	
 	# TODO: End the game if reached max score

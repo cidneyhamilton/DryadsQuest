@@ -6,6 +6,11 @@ func _ready():
 	Main.connect("plant_targeted", self, "_on_plant_targeted")
 	Main.connect("plant_resurrected", self, "_on_plant_resurrected")
 	
+func _input(event):
+	if event is InputEventMouseButton:
+		var mousePos = event.position
+		$PlayerSprite.flip_h = mousePos.x < position.x
+	
 func cast_spell():
 	animator.play("arms_rising")
 	
