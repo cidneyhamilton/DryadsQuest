@@ -1,30 +1,105 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/islands/Island.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/Island2.png" type="Texture" id=2]
 [ext_resource path="res://scenes/plants/Palm.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/plants/Fern.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/plants/Pine.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/plants/Mangrove.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Island1.png" type="Texture" id=7]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 7 )
+region = Rect2( 1008, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
+region = Rect2( 576, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 7 )
+region = Rect2( 648, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 7 )
+region = Rect2( 720, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 7 )
+region = Rect2( 792, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 7 )
+region = Rect2( 864, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 7 )
+region = Rect2( 936, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 7 )
+region = Rect2( 1008, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 7 )
+region = Rect2( 504, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 7 )
+region = Rect2( 72, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 7 )
 region = Rect2( 144, 0, 72, 32 )
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 72, 32 )
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 7 )
+region = Rect2( 216, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 7 )
+region = Rect2( 288, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 7 )
+region = Rect2( 360, 0, 72, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 7 )
+region = Rect2( 504, 0, 72, 32 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
+"frames": [ SubResource( 4 ) ],
 "loop": true,
 "name": "live",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ) ],
+"frames": [ SubResource( 5 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "reviving",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "irrigated",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "irrigating",
 "speed": 5.0
 } ]
 
@@ -32,18 +107,22 @@ animations = [ {
 
 [node name="IslandSprite" parent="." index="0"]
 frames = SubResource( 3 )
+animation = "irrigating"
+frame = 1
 
 [node name="Mangrove2" parent="." index="1" instance=ExtResource( 6 )]
 position = Vector2( -14, -3 )
+z_index = 1
 
 [node name="Mangrove" parent="." index="2" instance=ExtResource( 6 )]
 position = Vector2( 8, -3 )
+z_index = 1
 
 [node name="Fern" parent="." index="3" instance=ExtResource( 4 )]
 position = Vector2( 5, -9 )
 
 [node name="Palm" parent="." index="4" instance=ExtResource( 3 )]
-position = Vector2( -9, -20 )
+position = Vector2( -14, -20 )
 
 [node name="Pine" parent="." index="5" instance=ExtResource( 5 )]
 position = Vector2( 12, -20 )

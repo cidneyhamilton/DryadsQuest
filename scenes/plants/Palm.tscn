@@ -82,5 +82,5 @@ type = 1
 frames = SubResource( 14 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -1, 2 )
+position = Vector2( -2, 2 )
 rotation = 0.0

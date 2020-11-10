@@ -12,6 +12,7 @@ onready var animator = get_node("PlantSprite")
 onready var sound = get_node("Sound")
 	
 func _ready():
+	animator.play("dead")
 	Main.connect("finished_spell", self, "_on_finished_spell")
 	
 func _input_event(viewport, event, shape_idx):
@@ -19,14 +20,13 @@ func _input_event(viewport, event, shape_idx):
 		self.on_click()
 		
 func _on_finished_spell():
-	print("Finished spell; resurrecting plant.")
-	resurrect()
+	if state == RESURRECTING:
+		resurrect()
 	
 # After the growing animation is finished, the plant remains alive
 func _on_PlantSprite_animation_finished():
 	if (animator.animation == "grow"):
 		animator.animation = "live"
-		print("Plant resurrected; emitting signal")
 		Main.emit_signal("plant_resurrected")
 		
 func on_click():
@@ -38,7 +38,7 @@ func on_click():
 		if is_mangrove():
 			start_resurrect()
 		else:
-			print("No water")
+			print("No water, and this plant is not a mangrove.")
 	elif island.is_watered():
 		start_resurrect()
 		
@@ -46,16 +46,19 @@ func on_click():
 func start_resurrect():
 	# Show a message if the plant is alive
 	if state == DEAD:
-			state = RESURRECTING
-			Main.emit_signal("plant_targeted")
+		state = RESURRECTING
+		Main.emit_signal("plant_targeted")
+	elif state == ALIVE:
+		print("Plant is already alive")
+	else:
+		print("Plant is being resurrected.s")
 
 func is_mangrove():
 	return type == PlantType.MANGROVE
 	
 func resurrect():
-	if state == RESURRECTING:
-		state = ALIVE
-		sound.play()
-		animator.play("grow")
-		# TODO: Dialogue event
+	state = ALIVE
+	sound.play()
+	animator.play("grow")
+	# TODO: Dialogue event
 

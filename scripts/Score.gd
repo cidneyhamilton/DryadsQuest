@@ -1,17 +1,18 @@
 extends Control
 
 var value = 0
-var max_value = 3 
+var max_value = 0
 
 func _ready():
 	Main.connect("plant_resurrected", self, "_on_plant_resurrected")
-	
+
 func _on_plant_resurrected():
 	update_score()
 	
 func set_max_score():
-	max_value = get_tree().get_nodes_in_group("plants").size()
-	print("Max value: " + str(max_value))
+	if max_value == 0:
+		max_value = get_tree().get_nodes_in_group("plants").size()
+		print("Max value: " + str(max_value))
 	
 func update_score():
 	set_max_score()

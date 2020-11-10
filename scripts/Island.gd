@@ -1,6 +1,6 @@
 extends Node2D
 
-enum IslandState { UNAVAILABLE, DEAD, HAS_WATER, ALIVE}
+enum IslandState { UNAVAILABLE, DEAD, IRRIGATING, HAS_WATER, REVIVING, ALIVE}
 
 export(IslandState) var state = IslandState.UNAVAILABLE
 
@@ -24,32 +24,33 @@ func _ready():
 		else:
 			max_resurrected_plants += 1
 	
-	print("Max mangroves " + str(max_mangroves))
-	print("Max resurrected plants " + str(max_resurrected_plants))
+	animator.play("dead")
 	Main.connect("plant_resurrected", self, "_on_Plant_resurrected")
 	
 func _on_Plant_resurrected():
-	if state == IslandState.DEAD:
+	if is_dead():
 		num_resurrected_mangroves += 1
+		print("Resurrected: " + str(num_resurrected_mangroves) + " mangroves, need to resurrect: " + str(max_mangroves))
 		if num_resurrected_mangroves == max_mangroves:
-			make_watered()
-	elif state == IslandState.HAS_WATER:
+			start_irrigating()
+	elif is_watered():
 		num_resurrected_plants += 1
+		print("Resurrected: " + str(num_resurrected_plants) + " land plants, need to resurrect: " + str(max_resurrected_plants))
 		if num_resurrected_plants == max_resurrected_plants:
-			make_alive()
+			start_reviving()
 	
 func make_available():
 	state = IslandState.DEAD
 	
-func make_watered():
-	state = IslandState.HAS_WATER
-	# animator.play("live")	
+func start_irrigating():
+	if is_dead():
+		animator.play("irrigating")
+		state = IslandState.IRRIGATING
 	
-func make_alive():
-	state = IslandState.ALIVE
-	animator.play("live")	
-	# TODO: Increment the island
-	Main.emit_signal("island_healed")
+func start_reviving():
+	if is_watered():
+		animator.play("reviving")
+		state = IslandState.REVIVING
 	
 func is_unavailable():
 	return state == IslandState.UNAVAILABLE
@@ -62,3 +63,12 @@ func is_watered():
 	
 func is_alive():
 	return state == IslandState.ALIVE
+
+func _on_IslandSprite_animation_finished():
+	if (animator.animation == "reviving"):
+		animator.animation = "live"
+		state = IslandState.ALIVE
+		Main.emit_signal("island_healed")
+	if (animator.animation == "irrigating"):
+		state = IslandState.HAS_WATER
+		animator.animation = "irrigated"
