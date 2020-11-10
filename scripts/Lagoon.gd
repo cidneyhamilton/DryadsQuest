@@ -16,4 +16,4 @@ func _on_island_healed():
 		islands[current_island].make_available()
 	else:
 		# Do game over handling
-		print("Game over")
+		Main.emit_signal("finished_game")
