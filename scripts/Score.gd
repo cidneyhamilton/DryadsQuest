@@ -1,8 +1,7 @@
 extends Control
 
 var value = 0
-# TODO: when can this be set?
-var max_value = 3 # max_value = get_tree().get_nodes_in_group("plants").size()
+var max_value = 3 
 
 func _ready():
 	Main.connect("plant_resurrected", self, "_on_plant_resurrected")
@@ -10,7 +9,12 @@ func _ready():
 func _on_plant_resurrected():
 	update_score()
 	
+func set_max_score():
+	max_value = get_tree().get_nodes_in_group("plants").size()
+	print("Max value: " + str(max_value))
+	
 func update_score():
+	set_max_score()
 	value += 1
 	
 	$Label.text = "Score: " + str(value) + " out of " + str(max_value)

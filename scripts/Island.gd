@@ -10,18 +10,22 @@ var max_mangroves = 0
 var num_resurrected_plants = 0
 var max_resurrected_plants = 0
 
-var plants
+var plants = []
 
 onready var animator = get_node("IslandSprite")
 	
 func _ready():
-	plants = get_tree().get_nodes_in_group("plants")
+	for child in get_children():
+		if child is Plant:
+			plants.append(child)
 	for plant in plants:
 		if plant.is_mangrove():
 			max_mangroves += 1
 		else:
 			max_resurrected_plants += 1
 	
+	print("Max mangroves " + str(max_mangroves))
+	print("Max resurrected plants " + str(max_resurrected_plants))
 	Main.connect("plant_resurrected", self, "_on_Plant_resurrected")
 	
 func _on_Plant_resurrected():

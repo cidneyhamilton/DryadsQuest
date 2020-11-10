@@ -6,21 +6,12 @@
 
 [node name="StartIsland" instance=ExtResource( 1 )]
 
-[node name="IslandSprite" parent="." index="0"]
-animation = "watered"
-
-[node name="Mangrove" parent="." index="1" groups=[
-"plants",
-] instance=ExtResource( 2 )]
+[node name="Mangrove" parent="." index="1" instance=ExtResource( 2 )]
 position = Vector2( 24, 0 )
 
-[node name="Mangrove2" parent="." index="2" groups=[
-"plants",
-] instance=ExtResource( 2 )]
+[node name="Mangrove2" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 14, 2 )
 
-[node name="Pine" parent="." index="3" groups=[
-"plants",
-] instance=ExtResource( 3 )]
+[node name="Pine" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( -16, -16 )
 z_index = -1

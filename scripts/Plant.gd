@@ -1,3 +1,4 @@
+class_name Plant
 extends Area2D
 
 enum { DEAD, RESURRECTING, ALIVE}
@@ -34,7 +35,7 @@ func on_click():
 	if island.is_unavailable():
 		print("Island out of range")
 	elif island.is_dead():
-		if type == PlantType.MANGROVE:
+		if is_mangrove():
 			start_resurrect()
 		else:
 			print("No water")
