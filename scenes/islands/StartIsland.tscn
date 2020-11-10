@@ -6,6 +6,9 @@
 
 [node name="StartIsland" instance=ExtResource( 1 )]
 
+[node name="IslandSprite" parent="." index="0"]
+animation = "watered"
+
 [node name="Mangrove" parent="." index="1" groups=[
 "plants",
 ] instance=ExtResource( 2 )]

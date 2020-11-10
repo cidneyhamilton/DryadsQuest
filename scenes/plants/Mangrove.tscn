@@ -78,6 +78,7 @@ animations = [ {
 } ]
 
 [node name="Mangrove" instance=ExtResource( 1 )]
+type = 2
 
 [node name="PlantSprite" parent="." index="0"]
 frames = SubResource( 15 )

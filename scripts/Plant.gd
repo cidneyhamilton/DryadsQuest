@@ -2,6 +2,9 @@ extends Area2D
 
 enum { DEAD, RESURRECTING, ALIVE}
 
+enum PlantType { PINE, PALM, MANGROVE, FERN }
+export(PlantType) var type
+
 var state = DEAD
 
 onready var animator = get_node("PlantSprite")
@@ -27,15 +30,31 @@ func _on_PlantSprite_animation_finished():
 		
 func on_click():
 	# TODO: check state of plant's island to make sure it can be resurrected
+	var island = get_parent()
+	if island.is_unavailable():
+		print("Island out of range")
+	elif island.is_dead():
+		if type == PlantType.MANGROVE:
+			start_resurrect()
+		else:
+			print("No water")
+	elif island.is_watered():
+		start_resurrect()
+		
+	
+func start_resurrect():
+	# Show a message if the plant is alive
 	if state == DEAD:
-		state = RESURRECTING
-		Main.emit_signal("plant_targeted")
+			state = RESURRECTING
+			Main.emit_signal("plant_targeted")
+
+func is_mangrove():
+	return type == PlantType.MANGROVE
 	
 func resurrect():
 	if state == RESURRECTING:
 		state = ALIVE
 		sound.play()
 		animator.play("grow")
-		# TODO: Play a sound effect
 		# TODO: Dialogue event
 
