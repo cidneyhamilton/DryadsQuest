@@ -7,6 +7,7 @@ extends CanvasLayer
 # Various states of the dialogue display 
 enum { HIDDEN, SHOWN}
 var state = SHOWN
+onready var story = get_node("Story")
 
 # Reference to the Speech text message
 onready var message = get_node("Container//Message")
@@ -30,12 +31,17 @@ func _on_started_speaking(line):
 
 # Hide the dialogue message
 func hide_me():
-	state = HIDDEN
-	message.text = ""
+	if story.CanContinue:
+		message.text = story.Continue()
+	else:
+		state = HIDDEN
+		message.text = ""
+		
 
 # Show a line of dialogue
-func show(line):
+func show(knot_name):
+	story.ChoosePathString(knot_name)
+	message.text = story.Continue()
 	state = SHOWN
-	message.text = line
 	
 

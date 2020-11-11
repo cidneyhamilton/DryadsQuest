@@ -9,6 +9,8 @@ signal plant_resurrected
 signal finished_spell
 signal finished_lowering_arms
 signal island_healed
+
+signal started_game
 signal finished_game
 
 signal started_speaking(line)

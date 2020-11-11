@@ -43,6 +43,7 @@ func _on_Plant_resurrected():
 		print("Resurrected: " + str(num_resurrected_plants) + " land plants, need to resurrect: " + str(max_resurrected_plants))
 		if num_resurrected_plants == max_resurrected_plants:
 			start_reviving()
+			speak("island_healed")
 
 func make_available():
 	state = IslandState.DEAD
@@ -78,3 +79,6 @@ func _on_IslandSprite_animation_finished():
 	if (animator.animation == "irrigating"):
 		state = IslandState.HAS_WATER
 		animator.animation = "irrigated"
+		
+func speak(line):
+	Main.emit_signal("started_speaking", line)

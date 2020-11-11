@@ -40,6 +40,10 @@ window/stretch/aspect="keep"
 
 enabled=PoolStringArray( "paulloz.ink" )
 
+[ink]
+
+inklecate_path="/home/cidney/Development/inklecate.exe"
+
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0

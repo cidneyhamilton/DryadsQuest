@@ -13,6 +13,9 @@ rect_min_size = Vector2( 0, 200 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Container" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -21,8 +24,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Top" type="HBoxContainer" parent="Container"]
-editor/display_folded = true
-margin_right = 1024.0
+margin_right = 320.0
 margin_bottom = 20.0
 
 [node name="Label" type="Label" parent="Container/Top"]
@@ -33,29 +35,29 @@ text = "Story :"
 
 [node name="OptionButton" type="OptionButton" parent="Container/Top"]
 margin_left = 44.0
-margin_right = 85.0
+margin_right = 73.0
 margin_bottom = 20.0
 items = [ "", null, false, 0, null, "Load", null, false, 1, null ]
 selected = 0
 
 [node name="Bottom" type="HBoxContainer" parent="Container"]
 margin_top = 24.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 320.0
+margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Scroll" type="ScrollContainer" parent="Container/Bottom"]
-margin_right = 820.0
-margin_bottom = 576.0
+margin_right = 116.0
+margin_bottom = 176.0
 size_flags_horizontal = 11
 size_flags_vertical = 3
 custom_styles/bg = SubResource( 1 )
 scroll_horizontal_enabled = false
 
 [node name="Margin" type="MarginContainer" parent="Container/Bottom/Scroll"]
-margin_right = 820.0
-margin_bottom = 576.0
+margin_right = 116.0
+margin_bottom = 176.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 10
@@ -66,15 +68,15 @@ custom_constants/margin_bottom = 10
 [node name="StoryText" type="VBoxContainer" parent="Container/Bottom/Scroll/Margin"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 810.0
-margin_bottom = 566.0
+margin_right = 106.0
+margin_bottom = 166.0
 size_flags_horizontal = 11
 size_flags_vertical = 3
 
 [node name="StoryChoices" type="VBoxContainer" parent="Container/Bottom"]
-margin_left = 824.0
-margin_right = 1024.0
-margin_bottom = 576.0
+margin_left = 120.0
+margin_right = 320.0
+margin_bottom = 176.0
 rect_min_size = Vector2( 200, 0 )
 custom_constants/separation = 10
 
