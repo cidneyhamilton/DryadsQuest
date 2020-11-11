@@ -7,7 +7,7 @@ extends Control
 var value = 0
 var max_value = 0
 
-onready var label = get_node("Label")
+onready var label = get_node("Container/Label")
 
 func _ready():
 	Main.connect("plant_resurrected", self, "_on_plant_resurrected")

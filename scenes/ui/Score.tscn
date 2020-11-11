@@ -3,8 +3,6 @@
 [ext_resource path="res://assets/fonts/MonkeyIsland-1991.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/ui/Score.gd" type="Script" id=2]
 
-
-
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 3.0
 content_margin_right = 3.0

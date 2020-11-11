@@ -27,7 +27,6 @@ config/icon="res://icon.png"
 [autoload]
 
 Main="*res://scripts/Main.gd"
-__InkRuntime="*res://addons/inkgd/runtime.gd"
 
 [display]
 
@@ -39,7 +38,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "paulloz.ink" )
 
 [rendering]
 
