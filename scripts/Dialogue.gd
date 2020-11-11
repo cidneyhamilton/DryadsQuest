@@ -9,7 +9,7 @@ enum { HIDDEN, SHOWN}
 var state = SHOWN
 
 # Reference to the Speech text message
-onready var message = get_node("ColorRect//Message")
+onready var message = get_node("Container//Message")
 
 func _input(event ):
 	# Hide the dialogue view after a mouse click 

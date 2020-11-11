@@ -48,7 +48,7 @@ func make_available():
 	state = IslandState.DEAD
 	
 func start_irrigating():
-	start_animation(IslandState.Dead, IslandState.IRRIGATING, "irrigating")
+	start_animation(IslandState.DEAD, IslandState.IRRIGATING, "irrigating")
 	
 func start_reviving():
 	start_animation(IslandState.HAS_WATER, IslandState.REVIVING, "reviving")
