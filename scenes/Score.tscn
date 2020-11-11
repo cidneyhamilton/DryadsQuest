@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/MonkeyIsland-1991.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Score.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 3.0
+content_margin_right = 3.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 12
 font_data = ExtResource( 1 )
 
@@ -16,18 +23,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Container" type="PanelContainer" parent="."]
 anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+margin_bottom = 14.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "	"
+}
 
-[node name="Label" type="Label" parent="."]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -7.0
-margin_bottom = 7.0
-custom_fonts/font = SubResource( 1 )
+[node name="Label" type="Label" parent="Container"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 317.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 2 )
 text = "Score: 0 out of 1"
 align = 2
 __meta__ = {
