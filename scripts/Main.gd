@@ -1,5 +1,5 @@
 ##############
-# Main.gd
+# Mains.gd
 ##############
 
 extends Node2D
