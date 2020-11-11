@@ -1,7 +1,13 @@
+##############
+# Score.gd
+##############
+
 extends Control
 
 var value = 0
 var max_value = 0
+
+onready var label = get_node("Label")
 
 func _ready():
 	Main.connect("plant_resurrected", self, "_on_plant_resurrected")
@@ -18,6 +24,6 @@ func update_score():
 	set_max_score()
 	value += 1
 	
-	$Label.text = "Score: " + str(value) + " out of " + str(max_value)
+	label.text = "Score: " + str(value) + " out of " + str(max_value)
 	
 	# TODO: End the game if reached max score

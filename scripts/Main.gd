@@ -1,3 +1,7 @@
+##############
+# Main.gd
+##############
+
 extends Node2D
 
 signal plant_targeted

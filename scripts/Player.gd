@@ -1,3 +1,7 @@
+##############
+# Player.gd
+##############
+
 extends Node2D
 
 enum PlayerState { IDLE, CASTING_SPELL }
@@ -13,7 +17,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton:
 		var mousePos = event.position
-		$PlayerSprite.flip_h = mousePos.x < position.x
+		animator.flip_h = mousePos.x < position.x
 	
 func cast_spell():
 	if state == PlayerState.IDLE:

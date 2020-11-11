@@ -15,6 +15,8 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -36.0
+grow_horizontal = 0
+size_flags_vertical = 3
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -23,10 +25,13 @@ __meta__ = {
 [node name="Message" type="Label" parent="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_vertical = 0
+size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
-text = "Help me restore the lagoon!"
+text = "Help me restore the lagoon! Help me restore the lagoon! Help me restore the lagoon! Help me restore the lagoon! Help me restore the lagoon! Help me restore the lagoon!"
 align = 1
 valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -1,11 +1,15 @@
+##############
+# Lagoon.gd
+##############
+
 extends Node2D
 
-var islands = []
 var num_islands
 var current_island = 0
 
+onready var islands = get_node("Islands").get_children()
+
 func _ready():
-	islands = $Islands.get_children()
 	num_islands = islands.size()
 	Main.connect("island_healed", self, "_on_island_healed")
 	

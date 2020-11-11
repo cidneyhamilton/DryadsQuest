@@ -1,5 +1,10 @@
+##############
+# Island.gd
+##############
+
 extends Node2D
 
+# The various states of the island
 enum IslandState { UNAVAILABLE, DEAD, IRRIGATING, HAS_WATER, REVIVING, ALIVE}
 
 export(IslandState) var state = IslandState.UNAVAILABLE
@@ -38,19 +43,20 @@ func _on_Plant_resurrected():
 		print("Resurrected: " + str(num_resurrected_plants) + " land plants, need to resurrect: " + str(max_resurrected_plants))
 		if num_resurrected_plants == max_resurrected_plants:
 			start_reviving()
-	
+
 func make_available():
 	state = IslandState.DEAD
 	
 func start_irrigating():
-	if is_dead():
-		animator.play("irrigating")
-		state = IslandState.IRRIGATING
+	start_animation(IslandState.Dead, IslandState.IRRIGATING, "irrigating")
 	
 func start_reviving():
-	if is_watered():
-		animator.play("reviving")
-		state = IslandState.REVIVING
+	start_animation(IslandState.HAS_WATER, IslandState.REVIVING, "reviving")
+		
+func start_animation(old_state, new_state, animation):
+	if state == old_state:
+		animator.play(animation)
+		state = new_state
 	
 func is_unavailable():
 	return state == IslandState.UNAVAILABLE

@@ -1,3 +1,7 @@
+##############
+# Plant.gd
+##############
+
 class_name Plant
 extends Area2D
 
@@ -40,14 +44,16 @@ func on_click():
 	# TODO: check state of plant's island to make sure it can be resurrected
 	var island = get_parent()
 	if island.is_unavailable():
-		Main.emit_signal("started_speaking", "I can't reach those islands.")
+		speak("I can't reach those islands.")
 	elif state == RESURRECTING:
 		print("Plant being clicked is being resurrected.")
+	elif state == ALIVE:
+		speak("That plant is doing just fine now.")
 	elif island.is_dead():
 		if is_mangrove():
 			start_resurrect()
 		else:
-			print("No water, and this plant is not a mangrove.")
+			speak("The land plants can't breathe on their own... they need the mangroves to protect the shoreline.")
 	elif island.is_watered():
 		start_resurrect()
 		
@@ -70,4 +76,7 @@ func resurrect():
 	sound.play()
 	animator.play("grow")
 	# TODO: Dialogue event
+	
+func speak(line):
+	Main.emit_signal("started_speaking", line)
 
