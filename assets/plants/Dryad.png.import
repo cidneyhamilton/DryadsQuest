@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/StartIsland.png-65116334802f7983d76d525d7f43b9bb.stex"
+path="res://.import/Dryad.png-b1653d9d0dd550544b5dc7b77f2aa751.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/StartIsland.png"
-dest_files=[ "res://.import/StartIsland.png-65116334802f7983d76d525d7f43b9bb.stex" ]
+source_file="res://assets/plants/Dryad.png"
+dest_files=[ "res://.import/Dryad.png-b1653d9d0dd550544b5dc7b77f2aa751.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Island3.png-739173a4dd7694e4c255fc172e0b4cce.stex"
+path="res://.import/PalmTree.png-f10f8ef8c513fdc63e910cbc935f89a0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Island3.png"
-dest_files=[ "res://.import/Island3.png-739173a4dd7694e4c255fc172e0b4cce.stex" ]
+source_file="res://assets/plants/PalmTree.png"
+dest_files=[ "res://.import/PalmTree.png-f10f8ef8c513fdc63e910cbc935f89a0.stex" ]
 
 [params]
 

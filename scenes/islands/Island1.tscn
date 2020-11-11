@@ -5,7 +5,8 @@
 [ext_resource path="res://scenes/plants/Fern.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/plants/Pine.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/plants/Mangrove.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/Island1.png" type="Texture" id=7]
+[ext_resource path="res://assets/islands/Island1.png" type="Texture" id=7]
+
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 7 )

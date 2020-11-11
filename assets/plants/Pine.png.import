@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Island4.png-62e98f6594ebeb69fb130e111ab4c4ab.stex"
+path="res://.import/Pine.png-c59b8dd4a1e46814b104116ffb00b72d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Island4.png"
-dest_files=[ "res://.import/Island4.png-62e98f6594ebeb69fb130e111ab4c4ab.stex" ]
+source_file="res://assets/plants/Pine.png"
+dest_files=[ "res://.import/Pine.png-c59b8dd4a1e46814b104116ffb00b72d.stex" ]
 
 [params]
 

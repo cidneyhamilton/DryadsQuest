@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fern.png-391d1ff6de93d3271c5e54127ba106f0.stex"
+path="res://.import/Fern.png-2dba82e4f3d487e2361d896f82fcb7db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Fern.png"
-dest_files=[ "res://.import/Fern.png-391d1ff6de93d3271c5e54127ba106f0.stex" ]
+source_file="res://assets/plants/Fern.png"
+dest_files=[ "res://.import/Fern.png-2dba82e4f3d487e2361d896f82fcb7db.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mangrove.png-fb1790fe71e92706f3ddf050de06d957.stex"
+path="res://.import/Island5.png-17dc24da8011e42c82cf5662bbc32049.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mangrove.png"
-dest_files=[ "res://.import/Mangrove.png-fb1790fe71e92706f3ddf050de06d957.stex" ]
+source_file="res://assets/islands/Island5.png"
+dest_files=[ "res://.import/Island5.png-17dc24da8011e42c82cf5662bbc32049.stex" ]
 
 [params]
 
