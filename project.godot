@@ -42,7 +42,7 @@ enabled=PoolStringArray( "paulloz.ink" )
 
 [ink]
 
-inklecate_path="/home/cidney/Development/inklecate.exe"
+inklecate_path="/home/cidney/Development/assets/inklecate.exe"
 
 [rendering]
 
