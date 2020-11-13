@@ -4,17 +4,20 @@
 
 extends CanvasLayer
 
-onready var start_button = get_node("StartButton")
-onready var background = get_node("PanelContainer")
+onready var container = get_node("Container")
 
-# func _ready():
-	# Main.connect("finished_game", self, "_on_finished_game")
-	
+# Called to bring the title screen back up after the game is finished
+func _on_finished_game():
+	container.show()
+
+# Handle button presses
 func _on_StartButton_pressed():
-	background.hide()
-	start_button.hide()
+	print("Started game")
+	container.hide()
 	Main.emit_signal("started_game")
 	
-func _on_finished_game():
-	background.show()
-	start_button.show()
+func _on_SettingsButton_pressed():
+	pass # Replace with function body.
+
+func _on_QuitButton_pressed():
+	get_tree().quit()
