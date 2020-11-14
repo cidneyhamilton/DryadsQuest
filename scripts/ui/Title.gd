@@ -17,7 +17,7 @@ func _on_StartButton_pressed():
 	Main.emit_signal("started_game")
 	
 func _on_SettingsButton_pressed():
-	pass # Replace with function body.
+	Main.emit_signal("show_settings")
 
 func _on_QuitButton_pressed():
 	get_tree().quit()

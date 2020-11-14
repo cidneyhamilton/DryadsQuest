@@ -13,6 +13,9 @@ signal island_healed
 signal started_game
 signal finished_game
 
+signal show_settings
+signal hide_settings
+
 signal started_speaking(line)
 signal finished_speaking
 	
