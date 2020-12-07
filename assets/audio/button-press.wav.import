@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/gameover.wav-10c9c57a8f8fa43e74714a41bb43102f.sample"
+path="res://.import/button-press.wav-77bed88e1f8b05f9d64f9613027323e5.sample"
 
 [deps]
 
-source_file="res://assets/gameover.wav"
-dest_files=[ "res://.import/gameover.wav-10c9c57a8f8fa43e74714a41bb43102f.sample" ]
+source_file="res://assets/audio/button-press.wav"
+dest_files=[ "res://.import/button-press.wav-77bed88e1f8b05f9d64f9613027323e5.sample" ]
 
 [params]
 

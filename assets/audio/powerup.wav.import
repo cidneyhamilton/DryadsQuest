@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/powerup.wav-4ca665c05eb48dad1f8d369f632a72a9.sample"
+path="res://.import/powerup.wav-7591bd6e852991381dd14f8488ca481b.sample"
 
 [deps]
 
-source_file="res://assets/powerup.wav"
-dest_files=[ "res://.import/powerup.wav-4ca665c05eb48dad1f8d369f632a72a9.sample" ]
+source_file="res://assets/audio/powerup.wav"
+dest_files=[ "res://.import/powerup.wav-7591bd6e852991381dd14f8488ca481b.sample" ]
 
 [params]
 

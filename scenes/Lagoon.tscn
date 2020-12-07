@@ -7,7 +7,8 @@
 [ext_resource path="res://scenes/islands/Island1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/islands/Island3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/islands/Island4.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/gameover.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/gameover.wav" type="AudioStream" id=8]
+
 
 [node name="Lagoon" type="Node2D"]
 script = ExtResource( 3 )
