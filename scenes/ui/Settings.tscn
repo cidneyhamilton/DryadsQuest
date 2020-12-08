@@ -1,15 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/ui/UIBase.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/energy_bar_fill.png" type="Texture" id=2]
-[ext_resource path="res://assets/energy_bar_bg.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/MunroSmall.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://scripts/ui/Settings.gd" type="Script" id=5]
+[ext_resource path="res://scenes/ui/Sound.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
 size = 12
 font_data = ExtResource( 4 )
 
@@ -28,53 +24,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Music" type="HBoxContainer" parent="Container/VBoxContainer" index="0"]
-margin_right = 180.0
-margin_bottom = 24.0
+[node name="Audio" parent="Container/VBoxContainer" index="0" instance=ExtResource( 6 )]
 
-[node name="Label" type="Label" parent="Container/VBoxContainer/Music" index="0"]
-margin_top = 4.0
-margin_right = 77.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 1 )
-text = "Music"
-align = 2
-
-[node name="Gauge" type="TextureProgress" parent="Container/VBoxContainer/Music" index="1"]
-margin_left = 81.0
-margin_right = 180.0
-margin_bottom = 24.0
-value = 50.0
-texture_under = ExtResource( 3 )
-texture_progress = ExtResource( 2 )
-
-[node name="Sound" type="HBoxContainer" parent="Container/VBoxContainer" index="1"]
+[node name="BackButton" type="Button" parent="Container/VBoxContainer" index="1"]
 margin_top = 28.0
-margin_right = 180.0
-margin_bottom = 52.0
-
-[node name="Label" type="Label" parent="Container/VBoxContainer/Sound" index="0"]
-margin_top = 4.0
-margin_right = 77.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
+margin_right = 183.0
+margin_bottom = 46.0
 custom_fonts/font = SubResource( 1 )
-text = "Sound"
-align = 2
-
-[node name="Gauge" type="TextureProgress" parent="Container/VBoxContainer/Sound" index="1"]
-margin_left = 81.0
-margin_right = 180.0
-margin_bottom = 24.0
-value = 50.0
-texture_under = ExtResource( 3 )
-texture_progress = ExtResource( 2 )
-
-[node name="BackButton" type="Button" parent="Container/VBoxContainer" index="2"]
-margin_top = 56.0
-margin_right = 180.0
-margin_bottom = 74.0
-custom_fonts/font = SubResource( 2 )
 text = "Back"
 [connection signal="pressed" from="Container/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
