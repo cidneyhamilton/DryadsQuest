@@ -16,7 +16,7 @@ font_data = ExtResource( 4 )
 [node name="SettingsCanvas" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
 
-[node name="Character" parent="Container" index="2"]
+[node name="Character" parent="Container" index="3"]
 margin_top = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container" index="4"]

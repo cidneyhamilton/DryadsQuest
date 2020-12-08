@@ -41,5 +41,5 @@ __meta__ = {
 
 [node name="Story" type="Node" parent="."]
 script = ExtResource( 3 )
-AutoLoadStory = true
 InkFile = ExtResource( 4 )
+AutoLoadStory = true
