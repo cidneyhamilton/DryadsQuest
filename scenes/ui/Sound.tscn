@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/energy_bar_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/MunroSmall.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/energy_bar_fill.png" type="Texture" id=3]
 [ext_resource path="res://scripts/ui/VolumeControl.gd" type="Script" id=4]
 [ext_resource path="res://assets/audio/button-press.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/fonts/CrawlLarge.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 6 )
 
 [node name="Sound" type="HBoxContainer"]
 margin_right = 183.0
@@ -19,22 +28,23 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 margin_top = 4.0
-margin_right = 46.0
+margin_right = 38.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
-text = "Volume"
+text = "Sound"
 align = 2
 
 [node name="Down" type="Button" parent="."]
-margin_left = 50.0
-margin_right = 70.0
+margin_left = 42.0
+margin_right = 59.0
 margin_bottom = 24.0
+custom_fonts/font = SubResource( 2 )
 text = "<"
 
 [node name="Gauge" type="TextureProgress" parent="."]
-margin_left = 74.0
-margin_right = 173.0
+margin_left = 63.0
+margin_right = 162.0
 margin_bottom = 24.0
 max_value = 1.0
 step = 0.05
@@ -43,9 +53,10 @@ texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 3 )
 
 [node name="Up" type="Button" parent="."]
-margin_left = 177.0
-margin_right = 197.0
+margin_left = 166.0
+margin_right = 183.0
 margin_bottom = 24.0
+custom_fonts/font = SubResource( 3 )
 text = ">"
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
