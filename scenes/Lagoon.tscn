@@ -9,7 +9,6 @@
 [ext_resource path="res://scenes/islands/Island4.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/audio/gameover.wav" type="AudioStream" id=8]
 
-
 [node name="Lagoon" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -37,3 +36,4 @@ position = Vector2( 259, 73 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
+bus = "Sound"

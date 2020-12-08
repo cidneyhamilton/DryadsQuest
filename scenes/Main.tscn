@@ -32,7 +32,9 @@ anchor_right = 1.0
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
+bus = "Music"
 
 [node name="Sounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
+bus = "Sound"
 script = ExtResource( 10 )

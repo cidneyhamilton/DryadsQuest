@@ -48,6 +48,7 @@ text = "Quit"
 
 [node name="SFX" type="AudioStreamPlayer" parent="." index="1"]
 stream = ExtResource( 4 )
+bus = "Sound"
 [connection signal="pressed" from="Container/Buttons/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="Container/Buttons/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="pressed" from="Container/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
