@@ -6,8 +6,8 @@ class_name Plant
 extends Area2D
 
 enum { DEAD, RESURRECTING, ALIVE}
-
 enum PlantType { PINE, PALM, MANGROVE, FERN }
+
 export(PlantType) var type
 
 var state = DEAD
@@ -34,14 +34,14 @@ func _on_finished_lowering_arms():
 		print("This plant is still being flagged as resurrecting, even though her arms are lowered.")
 		state = DEAD 
 		
-# After the growing animation is finished, the plant remains alive
+# After the growing animation is finished, make sure the plant remains alive
 func _on_PlantSprite_animation_finished():
 	if (animator.animation == "grow"):
 		animator.animation = "live"
 		Main.emit_signal("plant_resurrected")
 		
+# Handles point and click behavior on plants
 func on_click():
-	# TODO: check state of plant's island to make sure it can be resurrected
 	var island = get_parent()
 	if island.is_unavailable():
 		speak("island_out_of_range")

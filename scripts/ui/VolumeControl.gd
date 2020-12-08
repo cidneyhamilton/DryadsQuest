@@ -1,14 +1,23 @@
+#####################
+# VolumeControl.gd
+#####################
+
 extends HBoxContainer
 
-# TODO: This should be a separate audio bus for music
+# Override this to point to a specific music
 export var audio_bus_name := "Master"
 
 # The amount to change the volume by
 export var amount = 0.25
 
+# The label. Matches the audio bus.
 onready var label = get_node("Label")
+
+# The sound effect used when the gauge is adjusted
 onready var sfx = get_node("SFX")
 onready var gauge = get_node("Gauge")
+
+# The audio bus to adjust
 onready var bus := AudioServer.get_bus_index(audio_bus_name)
 
 # Called when the node enters the scene tree for the first time.
@@ -31,4 +40,6 @@ func _on_Down_pressed():
 	
 func update_volume():
 	AudioServer.set_bus_volume_db(bus, linear2db(gauge.value))
+	
+	# Play a button effect
 	sfx.play()

@@ -27,7 +27,7 @@ func cast_spell():
 		print("Already in the middle of casting a spell")
 	
 func finish_resurrect():
-	print("Finished resurrect")
+	# print("Finished resurrect")
 	animator.play("arms_falling")
 	
 func _on_plant_targeted():

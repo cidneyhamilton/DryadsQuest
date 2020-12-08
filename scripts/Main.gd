@@ -1,9 +1,10 @@
 ##############
-# Mains.gd
+# Main.gd
 ##############
 
 extends Node2D
 
+# Master list of game signals
 signal plant_targeted
 signal plant_resurrected
 signal finished_spell

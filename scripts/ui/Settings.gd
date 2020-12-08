@@ -1,3 +1,7 @@
+##############
+# Settings.gd
+##############
+
 extends CanvasLayer
 
 onready var container = get_node("Container")
