@@ -6,7 +6,7 @@ export var audio_bus_name := "Master"
 # The amount to change the volume by
 export var amount = 0.25
 
-
+onready var sfx = get_node("SFX")
 onready var gauge = get_node("Gauge")
 onready var bus := AudioServer.get_bus_index(audio_bus_name)
 
@@ -25,6 +25,8 @@ func _on_Down_pressed():
 	if gauge.value < 0:
 		gauge.value = 0
 	update_volume()
+
 	
 func update_volume():
 	AudioServer.set_bus_volume_db(bus, linear2db(gauge.value))
+	sfx.play()
