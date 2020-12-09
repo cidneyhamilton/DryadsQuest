@@ -21,8 +21,10 @@ _global_script_class_icons={
 [application]
 
 config/name="DryadsQuest"
+config/description="Help the Dryad of the Indian River Lagoon restore the environment! Created for Ludum Dare 47 in October 2020."
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://assets/icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
