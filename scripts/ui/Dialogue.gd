@@ -29,9 +29,12 @@ func _on_finished_speaking():
 func _on_started_speaking(line):
 	show(line)
 
+func can_continue():
+	return false
+	
 # Hide the dialogue message
 func hide_me():
-	if story.CanContinue:
+	if can_continue():
 		message.text = story.Continue()
 	else:
 		state = HIDDEN
@@ -40,8 +43,8 @@ func hide_me():
 
 # Show a line of dialogue
 func show(knot_name):
-	story.ChoosePathString(knot_name)
-	message.text = story.Continue()
+	# story.ChoosePathString(knot_name)
+	# message.text = story.Continue()
 	state = SHOWN
 	
 

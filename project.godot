@@ -23,8 +23,13 @@ _global_script_class_icons={
 config/name="DryadsQuest"
 config/description="Help the Dryad of the Indian River Lagoon restore the environment! Created for Ludum Dare 47 in October 2020."
 run/main_scene="res://scenes/Main.tscn"
+boot_splash/image="res://assets/DryadTitle.png"
 config/icon="res://assets/icon.png"
-config/windows_native_icon="res://icon.ico"
+config/windows_native_icon="res://assets/icon.ico"
+
+[audio]
+
+default_bus_layout="res://resources/default_bus_layout.tres"
 
 [autoload]
 
@@ -40,15 +45,15 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "paulloz.ink" )
+enabled=PoolStringArray(  )
 
 [ink]
 
-inklecate_path="/home/cidney/Development/assets/inklecate.exe"
+inklecate_path="/home/cidney/Development/inklecate/inklecate.exe"
 
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 quality/2d/use_pixel_snap=true
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://resources/default_env.tres"
