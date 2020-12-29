@@ -6,8 +6,10 @@ extends CanvasLayer
 
 # Various states of the dialogue display 
 enum { HIDDEN, SHOWN}
+
 var state = SHOWN
-onready var story = get_node("Story")
+
+var lines = []
 
 # Reference to the Speech text message
 onready var message = get_node("Container//Message")
@@ -30,21 +32,36 @@ func _on_started_speaking(line):
 	show(line)
 
 func can_continue():
-	return false
+	return !lines.empty()
+	
+# Shows the next line of dialogue
+# In Ink, this would be Story.Continue()
+# For now, use a queue of lines
+func next_line(new_lines):
+	lines = new_lines
+	return lines.pop_front()
 	
 # Hide the dialogue message
 func hide_me():
 	if can_continue():
-		message.text = story.Continue()
+		message.text = next_line(lines)
 	else:
 		state = HIDDEN
 		message.text = ""
 		
 
-# Show a line of dialogue
-func show(knot_name):
-	# story.ChoosePathString(knot_name)
-	# message.text = story.Continue()
-	state = SHOWN
-	
+func show(text):
+	if text is Array:
+		show_lines(text)
+	else:
+		show_line(text)
 
+# Show a line of dialogue
+# Input can either be one line, or an array of lines
+func show_lines(lines: Array):
+	message.text = next_line(lines)
+	state = SHOWN
+
+func show_line(line: String):
+	message.text = line
+	state = SHOWN

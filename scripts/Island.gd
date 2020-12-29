@@ -43,7 +43,20 @@ func _on_Plant_resurrected():
 		print("Resurrected: " + str(num_resurrected_plants) + " land plants, need to resurrect: " + str(max_resurrected_plants))
 		if num_resurrected_plants == max_resurrected_plants:
 			start_reviving()
-			speak("island_healed")
+			show_revival_text()
+
+func show_revival_text():
+	Main.islands_healed = Main.islands_healed + 1
+	var count = Main.islands_healed
+	if (count== 1):
+		var lines = []
+		lines.append("I've healed the mangroves around me, and the tree...")
+		lines.append("...but wait, what is this?")
+		speak(lines)
+	elif count == 3:
+		speak("The lagoon is beginning to return to life. But there's still more work to be done.")
+	elif (count == 5):
+		speak("Yes! Yes! I'm almost done.")
 
 func make_available():
 	state = IslandState.DEAD

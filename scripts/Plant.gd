@@ -44,17 +44,18 @@ func _on_PlantSprite_animation_finished():
 func on_click():
 	var island = get_parent()
 	if island.is_unavailable():
-		speak("island_out_of_range")
+		speak("I can't reach those islands.")
 	elif state == RESURRECTING:
-		print("Plant being clicked is being resurrected.")
+		return
 	elif state == ALIVE:
-		speak("resurrect_live_plant")
+		speak("That plant is doing just fine now.")
 	elif island.is_dead():
 		if is_mangrove():
-			speak("mangrove_healed")
+			if Main.is_first_mangrove_healed:
+				speak("I can heal the mangrove with only a touch.")
 			start_resurrect()
 		else:
-			speak("no_water")
+			speak("The land plants can't breathe on their own... they need the mangroves to protect the shoreline.")
 	elif island.is_watered():
 		start_resurrect()
 		
