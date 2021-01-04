@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/Background320x180.png" type="Texture" id=1]
 [ext_resource path="res://scenes/islands/Island2.tscn" type="PackedScene" id=2]
@@ -8,6 +8,39 @@
 [ext_resource path="res://scenes/islands/Island3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/islands/Island4.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/audio/gameover.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/WaterAnimation.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 160, 90 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 9 )
+region = Rect2( 160, 0, 160, 90 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 9 )
+region = Rect2( 320, 0, 160, 90 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 160, 90 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 9 )
+region = Rect2( 160, 0, 160, 90 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 9 )
+region = Rect2( 320, 0, 160, 90 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Lagoon" type="Node2D"]
 script = ExtResource( 3 )
@@ -16,14 +49,20 @@ script = ExtResource( 3 )
 texture = ExtResource( 1 )
 centered = false
 
+[node name="Waves" type="AnimatedSprite" parent="."]
+position = Vector2( 177.91, 76.8886 )
+frames = SubResource( 4 )
+frame = 2
+playing = true
+
 [node name="Islands" type="Node2D" parent="."]
 
 [node name="StartIsland" parent="Islands" instance=ExtResource( 4 )]
-position = Vector2( 166, 90 )
+position = Vector2( 173.857, 91.6837 )
 state = 1
 
 [node name="Island1" parent="Islands" instance=ExtResource( 5 )]
-position = Vector2( 89, 82 )
+position = Vector2( 113.694, 88.7348 )
 
 [node name="Island2" parent="Islands" instance=ExtResource( 2 )]
 position = Vector2( 101, 112 )
@@ -32,7 +71,7 @@ position = Vector2( 101, 112 )
 position = Vector2( 223, 120 )
 
 [node name="Island4" parent="Islands" instance=ExtResource( 7 )]
-position = Vector2( 259, 73 )
+position = Vector2( 231.5, 62.8978 )
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
