@@ -4,8 +4,8 @@
 
 extends Control
 
-var value = 0
-var max_value = 0
+var value : int = 0
+var max_value : int = 0
 
 onready var label = get_node("Container/Label")
 

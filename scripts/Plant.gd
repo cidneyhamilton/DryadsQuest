@@ -3,51 +3,58 @@
 ##############
 
 class_name Plant
+
 extends Area2D
 
-enum { DEAD, RESURRECTING, ALIVE}
+# Various states the plant can be in
+enum PlantState { DEAD, RESURRECTING, ALIVE}
+
+# Types of plants
 enum PlantType { PINE, PALM, MANGROVE, FERN }
 
 export(PlantType) var type
 
-var state = DEAD
+var state = PlantState.DEAD
 
 onready var animator = get_node("PlantSprite")
 onready var sound = get_node("Sound")
 	
-func _ready():
+func _ready() -> void:
 	animator.play("dead")
 	Main.connect("finished_lowering_arms", self, "_on_finished_lowering_arms")
 	Main.connect("finished_spell", self, "_on_finished_spell")
-	
-func _input_event(viewport, event, shape_idx):
+
+# Handle events on this plant
+func _input_event(viewport, event, shape_idx) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
 		self.on_click()
-		
-func _on_finished_spell():
-	if state == RESURRECTING:
+
+# Callback when a spell is finished		
+func _on_finished_spell() -> void:
+	if state == PlantState.RESURRECTING:
 		print("This plant is being resurrected; finish resurrecting it.")
 		resurrect()
-	
-func _on_finished_lowering_arms():
-	if state == RESURRECTING:
+
+# Callback when the player's arm lowers
+func _on_finished_lowering_arms() -> void:
+	if state == PlantState.RESURRECTING:
 		print("This plant is still being flagged as resurrecting, even though her arms are lowered.")
-		state = DEAD 
+		state = PlantState.DEAD 
 		
 # After the growing animation is finished, make sure the plant remains alive
-func _on_PlantSprite_animation_finished():
+func _on_PlantSprite_animation_finished() -> void:
 	if (animator.animation == "grow"):
 		animator.animation = "live"
 		Main.emit_signal("plant_resurrected")
 		
 # Handles point and click behavior on plants
-func on_click():
+func on_click() -> void:
 	var island = get_parent()
 	if island.is_unavailable():
 		speak("I can't reach those islands.")
-	elif state == RESURRECTING:
+	elif state == PlantState.RESURRECTING:
 		return
-	elif state == ALIVE:
+	elif state == PlantState.ALIVE:
 		speak("That plant is doing just fine now.")
 	elif island.is_dead():
 		if is_mangrove():
@@ -58,27 +65,30 @@ func on_click():
 			speak("The land plants can't breathe on their own... they need the mangroves to protect the shoreline.")
 	elif island.is_watered():
 		start_resurrect()
-		
-	
-func start_resurrect():
+
+# Start resurrecting the plant
+func start_resurrect() -> void:
 	# Show a message if the plant is alive
-	if state == DEAD:
-		state = RESURRECTING
+	if state == PlantState.DEAD:
+		state = PlantState.RESURRECTING
 		Main.emit_signal("plant_targeted")
-	elif state == ALIVE:
+	elif state == PlantState.ALIVE:
 		print("Plant is already alive")
 	else:
 		print("Plant trying to start resurrect on is being resurrected.")
 
-func is_mangrove():
+# Returns true if this is a mangrove
+func is_mangrove() -> bool:
 	return type == PlantType.MANGROVE
-	
-func resurrect():
-	state = ALIVE
+
+# Starts resurrecting the plant
+func resurrect() -> void:
+	state = PlantState.ALIVE
 	sound.play()
 	animator.play("grow")
 	# TODO: Dialogue event
-	
-func speak(line):
+
+# Speaks a line
+func speak(line) -> void:
 	Main.emit_signal("started_speaking", line)
 

@@ -3,20 +3,26 @@
 ##############
 
 extends Node2D
+class_name Island
 
 # The various states of the island
 enum IslandState { UNAVAILABLE, DEAD, IRRIGATING, HAS_WATER, REVIVING, ALIVE}
 
+# The island's default state; usually unavailable
 export(IslandState) var state = IslandState.UNAVAILABLE
 
-var num_resurrected_mangroves = 0
-var max_mangroves = 0
+# Keep track of the current and max number of resurrected mangroves
+var num_resurrected_mangroves : int = 0
+var max_mangroves : int = 0
 
-var num_resurrected_plants = 0
-var max_resurrected_plants = 0
+# Keep track of the current and max number of resurrected plants
+var num_resurrected_plants : int = 0
+var max_resurrected_plants : int = 0
 
+# Array of plants tied to this island
 var plants = []
 
+# Reference to the animator
 onready var animator = get_node("IslandSprite")
 	
 func _ready():
@@ -28,8 +34,10 @@ func _ready():
 			max_mangroves += 1
 		else:
 			max_resurrected_plants += 1
-	
+
+	# Play the island's Dead state
 	animator.play("dead")
+
 	Main.connect("plant_resurrected", self, "_on_Plant_resurrected")
 	
 func _on_Plant_resurrected():
@@ -58,32 +66,41 @@ func show_revival_text():
 	elif (count == 5):
 		speak("Yes! Yes! I'm almost done.")
 
+# Immediately make the island dead
 func make_available():
 	state = IslandState.DEAD
-	
+
+# Start irtigation animation
 func start_irrigating():
 	start_animation(IslandState.DEAD, IslandState.IRRIGATING, "irrigating")
-	
+
+# Start revival animation
 func start_reviving():
 	start_animation(IslandState.HAS_WATER, IslandState.REVIVING, "reviving")
-		
+
+# Start an arbitrary animation
 func start_animation(old_state, new_state, animation):
 	if state == old_state:
 		animator.play(animation)
 		state = new_state
-	
+
+# Check if unavailable
 func is_unavailable():
 	return state == IslandState.UNAVAILABLE
-	
+
+# Check island state
 func is_dead():
 	return state == IslandState.DEAD
-	
+
+# Check island state
 func is_watered():
 	return state == IslandState.HAS_WATER
-	
+
+# Check island state
 func is_alive():
 	return state == IslandState.ALIVE
 
+# Callback when finishing an animation
 func _on_IslandSprite_animation_finished():
 	if (animator.animation == "reviving"):
 		animator.animation = "live"
@@ -92,6 +109,7 @@ func _on_IslandSprite_animation_finished():
 	if (animator.animation == "irrigating"):
 		state = IslandState.HAS_WATER
 		animator.animation = "irrigated"
-		
+
+# Speak a line
 func speak(line):
 	Main.emit_signal("started_speaking", line)

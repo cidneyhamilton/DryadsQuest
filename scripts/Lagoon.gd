@@ -3,9 +3,13 @@
 ##############
 
 extends Node2D
+class_name Lagoon
 
-var num_islands
-var current_island = 0
+# The total number of islands
+var num_islands : int = 0
+
+# Index of the current island
+var current_island : int = 0
 
 onready var islands = get_node("Islands").get_children()
 onready var sound = get_node("Sound")
@@ -24,14 +28,16 @@ func _on_island_healed():
 	if current_island < num_islands:
 		islands[current_island].make_available()
 	else:
-		# Do game over handling
+		# All islands have been dealt with.
+		# End the game.
+		Main.is_game_over = true
 		sound.play()
 		gameover_text()
-		Main.emit_signal("finished_game")
 		
 func speak(line):
 	Main.emit_signal("started_speaking", line)
-	
+
+# Start game script
 func start_text():
 	var lines = []
 	lines.append("The city of Cocoa, Florida, USA. 2048.")
@@ -44,7 +50,8 @@ func start_text():
 	lines.append("Everything here is dead.")
 	lines.append("What happened?")
 	speak(lines)
-	
+
+# End game script
 func gameover_text():
 	var lines = []
 	lines.append("YES! Yes! I've healed every plant on this loop of islands.")

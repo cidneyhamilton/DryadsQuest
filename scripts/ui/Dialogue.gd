@@ -48,6 +48,9 @@ func hide_me():
 	else:
 		state = HIDDEN
 		message.text = ""
+		# If the game is over, finish the game, otherwise, go back to playing as normal.
+		if Main.is_game_over:
+			Main.emit_signal("finished_game")
 		
 
 func show(text):
@@ -62,6 +65,7 @@ func show_lines(lines: Array):
 	message.text = next_line(lines)
 	state = SHOWN
 
+# Show a single line
 func show_line(line: String):
 	message.text = line
 	state = SHOWN
