@@ -4,16 +4,19 @@
 
 extends AudioStreamPlayer2D
 
-const AUDIO_PATH = "res://assets/audio"
+export var title_loop : AudioStreamOGGVorbis
+export var game_loop : AudioStreamOGGVorbis 
 
-func _ready() -> void:
-	Main.connect("play_music", self, "play_clip")
+func _ready() -> void:	
+	Main.connect("play_title", self, "play_title")
+	Main.connect("play_game", self, "play_game")
 
 # Changes the background music
-func play_clip(clip_name) -> void:
-	var file = AUDIO_PATH + "/" + clip_name + ".ogg"
-	print("Switching to " + file)
-	if File.new().file_exists(file):
-		var music = load(file)
-		stream = music
-		play()
+func play_title() -> void:
+	stream = title_loop
+	play()
+	
+func play_game() -> void:
+	stream = game_loop
+	play()
+

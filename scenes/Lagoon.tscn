@@ -10,6 +10,8 @@
 [ext_resource path="res://assets/audio/gameover.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/WaterAnimation.png" type="Texture" id=9]
 
+
+
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 160, 90 )

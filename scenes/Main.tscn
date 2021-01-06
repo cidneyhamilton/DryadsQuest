@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Lagoon.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/audio/title_loop.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/music/title_loop.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/ui/Score.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=5]
 [ext_resource path="res://scenes/ui/Title.tscn" type="PackedScene" id=6]
@@ -12,6 +12,10 @@
 [ext_resource path="res://scripts/audio/Sounds.gd" type="Script" id=10]
 [ext_resource path="res://assets/ui/Cursor.png" type="Texture" id=11]
 [ext_resource path="res://scripts/audio/Music.gd" type="Script" id=12]
+[ext_resource path="res://scripts/ui/Cursor.gd" type="Script" id=13]
+[ext_resource path="res://assets/audio/music/game_loop.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/gameover.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/audio/powerup.wav" type="AudioStream" id=16]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 5 )
@@ -36,11 +40,16 @@ stream = ExtResource( 3 )
 autoplay = true
 bus = "Music"
 script = ExtResource( 12 )
+title_loop = ExtResource( 3 )
+game_loop = ExtResource( 14 )
 
 [node name="Sounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 bus = "Sound"
 script = ExtResource( 10 )
+button_press = ExtResource( 9 )
+gameover = ExtResource( 15 )
+powerup = ExtResource( 16 )
 
 [node name="CursorCanvas" type="CanvasLayer" parent="."]
 
@@ -50,3 +59,4 @@ scale = Vector2( 2, 2 )
 z_index = 100
 z_as_relative = false
 texture = ExtResource( 11 )
+script = ExtResource( 13 )
