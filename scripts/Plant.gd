@@ -31,13 +31,13 @@ func _input_event(viewport, event, shape_idx) -> void:
 # Callback when a spell is finished		
 func _on_finished_spell() -> void:
 	if state == PlantState.RESURRECTING:
-		print("This plant is being resurrected; finish resurrecting it.")
+		# print("This plant is being resurrected; finish resurrecting it.")
 		resurrect()
 
 # Callback when the player's arm lowers
 func _on_finished_lowering_arms() -> void:
 	if state == PlantState.RESURRECTING:
-		print("This plant is still being flagged as resurrecting, even though her arms are lowered.")
+		# print("This plant is still being flagged as resurrecting, even though her arms are lowered.")
 		state = PlantState.DEAD 
 		
 # After the growing animation is finished, make sure the plant remains alive
@@ -56,7 +56,7 @@ func on_click() -> void:
 	if island.is_unavailable():
 		speak("I can't reach those islands.")
 	elif state == PlantState.RESURRECTING:
-		print("This is currently resurrecting; do nothing")
+		# print("This is currently resurrecting; do nothing")
 		return
 	elif state == PlantState.ALIVE:
 		speak("That plant is doing just fine now.")
@@ -70,7 +70,8 @@ func on_click() -> void:
 	elif island.is_watered():
 		start_resurrect()
 	else:
-		print("State not found")
+		# print("State not found")
+		pass
 
 # Start resurrecting the plant
 func start_resurrect() -> void:
@@ -79,9 +80,11 @@ func start_resurrect() -> void:
 		state = PlantState.RESURRECTING
 		Main.emit_signal("plant_targeted")
 	elif state == PlantState.ALIVE:
-		print("Plant is already alive")
+		# print("Plant is already alive")
+		pass
 	else:
-		print("Plant trying to start resurrect on is being resurrected.")
+		# print("Plant trying to start resurrect on is being resurrected.")
+		pass
 
 # Returns true if this is a mangrove
 func is_mangrove() -> bool:

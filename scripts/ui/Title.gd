@@ -36,9 +36,9 @@ func sfx() -> void:
 	Main.emit_signal("play_sfx", "button-press")
 
 func title_music() -> void:
-	print("Switch to title track.")
+	# print("Switch to title track.")
 	Main.emit_signal("play_title")
 	
 func game_music() -> void:
-	print("Switch to game loop track.")
+	# print("Switch to game loop track.")
 	Main.emit_signal("play_game")

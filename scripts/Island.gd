@@ -45,12 +45,12 @@ func _on_started_game() -> void:
 func _on_Plant_resurrected() -> void:
 	if is_dead():
 		num_resurrected_mangroves += 1
-		print("Resurrected: " + str(num_resurrected_mangroves) + " mangroves, need to resurrect: " + str(max_mangroves))
+		# print("Resurrected: " + str(num_resurrected_mangroves) + " mangroves, need to resurrect: " + str(max_mangroves))
 		if num_resurrected_mangroves == max_mangroves:
 			start_irrigating()
 	elif is_watered():
 		num_resurrected_plants += 1
-		print("Resurrected: " + str(num_resurrected_plants) + " land plants, need to resurrect: " + str(max_resurrected_plants))
+		# print("Resurrected: " + str(num_resurrected_plants) + " land plants, need to resurrect: " + str(max_resurrected_plants))
 		if num_resurrected_plants == max_resurrected_plants:
 			start_reviving()
 			show_revival_text()

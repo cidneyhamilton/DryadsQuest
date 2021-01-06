@@ -29,7 +29,8 @@ func cast_spell() -> void:
 		state = PlayerState.CASTING_SPELL
 		animator.play("arms_rising")
 	else:
-		print("Already in the middle of casting a spell")
+		# print("Already in the middle of casting a spell")
+		pass
 	
 func finish_resurrect() -> void:
 	animator.play("arms_falling")
