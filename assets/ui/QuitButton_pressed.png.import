@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/energy_bar_fill.png-287828554d556f22bf29dbc1dda7f6cd.stex"
+path="res://.import/QuitButton_pressed.png-896327cc01fe1bfed42ca8dd3a6a8e86.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/energy_bar_fill.png"
-dest_files=[ "res://.import/energy_bar_fill.png-287828554d556f22bf29dbc1dda7f6cd.stex" ]
+source_file="res://assets/ui/QuitButton_pressed.png"
+dest_files=[ "res://.import/QuitButton_pressed.png-896327cc01fe1bfed42ca8dd3a6a8e86.stex" ]
 
 [params]
 

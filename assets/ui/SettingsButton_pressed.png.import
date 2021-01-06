@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/energy_bar_bg.png-a5839c657c2df0536133322ba35c4fbc.stex"
+path="res://.import/SettingsButton_pressed.png-695670d1e94580c234eb532dd3bca89d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/energy_bar_bg.png"
-dest_files=[ "res://.import/energy_bar_bg.png-a5839c657c2df0536133322ba35c4fbc.stex" ]
+source_file="res://assets/ui/SettingsButton_pressed.png"
+dest_files=[ "res://.import/SettingsButton_pressed.png-695670d1e94580c234eb532dd3bca89d.stex" ]
 
 [params]
 

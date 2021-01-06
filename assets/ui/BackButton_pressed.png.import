@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cursor.png-d18120ae8365ddf6290324ebb7300e3f.stex"
+path="res://.import/BackButton_pressed.png-9667276bfafce9f8c364844a37413314.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cursor.png"
-dest_files=[ "res://.import/Cursor.png-d18120ae8365ddf6290324ebb7300e3f.stex" ]
+source_file="res://assets/ui/BackButton_pressed.png"
+dest_files=[ "res://.import/BackButton_pressed.png-9667276bfafce9f8c364844a37413314.stex" ]
 
 [params]
 

@@ -29,3 +29,10 @@ func update_score():
 func update_score_label():
 	label.text = "Score: " + str(value) + " out of " + str(max_value)
 	
+func _on_Back_pressed() -> void:
+	sfx()
+	Main.emit_signal("finished_game")
+	
+# Play a button effect
+func sfx() -> void:	
+	Main.emit_signal("play_sfx", "button-press")

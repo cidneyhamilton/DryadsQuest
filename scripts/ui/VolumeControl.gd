@@ -2,7 +2,7 @@
 # VolumeControl.gd
 #####################
 
-extends HBoxContainer
+extends Control
 
 # Override this to point to a specific music
 export var audio_bus_name := "Master"

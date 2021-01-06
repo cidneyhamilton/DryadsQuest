@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Background320x180.png-5774bb6b88ab000db0cfbfcf4e077193.stex"
+path="res://.import/UpButton_pressed.png-466024806cdee5da140e5c2adb4c1d29.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Background320x180.png"
-dest_files=[ "res://.import/Background320x180.png-5774bb6b88ab000db0cfbfcf4e077193.stex" ]
+source_file="res://assets/ui/UpButton_pressed.png"
+dest_files=[ "res://.import/UpButton_pressed.png-466024806cdee5da140e5c2adb4c1d29.stex" ]
 
 [params]
 
