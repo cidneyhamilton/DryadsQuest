@@ -15,11 +15,11 @@ onready var islands = get_node("Islands").get_children()
 onready var sound = get_node("Sound")
 
 func _ready():
-	num_islands = islands.size()
 	Main.connect("island_healed", self, "_on_island_healed")
 	Main.connect("started_game", self, "_on_started_game")
 	
 func _on_started_game():
+	reset_lagoon_state()
 	start_text()
 	
 func _on_island_healed():
@@ -33,7 +33,15 @@ func _on_island_healed():
 		Main.is_game_over = true
 		sound.play()
 		gameover_text()
-		
+
+func reset_lagoon_state():
+	num_islands = islands.size()
+	current_island = 0
+	Main.is_game_over = false
+	islands[0].make_available()
+	for n in range(1, num_islands):
+		islands[n].make_unavailable()
+	
 func speak(line):
 	Main.emit_signal("started_speaking", line)
 

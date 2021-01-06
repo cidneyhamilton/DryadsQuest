@@ -19,7 +19,7 @@ var state = PlantState.DEAD
 onready var animator = get_node("PlantSprite")
 	
 func _ready() -> void:
-	animator.play("dead")
+	Main.connect("started_game", self, "reset_state")
 	Main.connect("finished_lowering_arms", self, "_on_finished_lowering_arms")
 	Main.connect("finished_spell", self, "_on_finished_spell")
 
@@ -45,13 +45,18 @@ func _on_PlantSprite_animation_finished() -> void:
 	if (animator.animation == "grow"):
 		animator.animation = "live"
 		Main.emit_signal("plant_resurrected")
-		
+
+func reset_state() -> void:
+	state = PlantState.DEAD
+	animator.play("dead")
+	
 # Handles point and click behavior on plants
 func on_click() -> void:
 	var island = get_parent()
 	if island.is_unavailable():
 		speak("I can't reach those islands.")
 	elif state == PlantState.RESURRECTING:
+		print("This is currently resurrecting; do nothing")
 		return
 	elif state == PlantState.ALIVE:
 		speak("That plant is doing just fine now.")
@@ -64,6 +69,8 @@ func on_click() -> void:
 			speak("The land plants can't breathe on their own... they need the mangroves to protect the shoreline.")
 	elif island.is_watered():
 		start_resurrect()
+	else:
+		print("State not found")
 
 # Start resurrecting the plant
 func start_resurrect() -> void:
