@@ -50,6 +50,7 @@ func hide_me():
 		message.text = ""
 		# If the game is over, finish the game, otherwise, go back to playing as normal.
 		if Main.is_game_over:
+			Main.emit_signal("play_sfx", "gameover")
 			Main.emit_signal("finished_game")
 		
 

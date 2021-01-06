@@ -20,6 +20,9 @@ signal hide_settings
 signal started_speaking(line)
 signal finished_speaking
 
+signal play_music(clip)
+signal play_sfx(clip)
+
 # Global variables
 var knowledge_of_mangroves : bool = false
 var saved_start_tree : bool = false

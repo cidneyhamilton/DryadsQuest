@@ -76,6 +76,7 @@ animations = [ {
 [node name="Pine" groups=[
 "plants",
 ] instance=ExtResource( 1 )]
+type = 0
 
 [node name="PlantSprite" parent="." index="0"]
 frames = SubResource( 14 )

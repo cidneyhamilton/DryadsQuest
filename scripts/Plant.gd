@@ -17,7 +17,6 @@ export(PlantType) var type
 var state = PlantState.DEAD
 
 onready var animator = get_node("PlantSprite")
-onready var sound = get_node("Sound")
 	
 func _ready() -> void:
 	animator.play("dead")
@@ -84,11 +83,14 @@ func is_mangrove() -> bool:
 # Starts resurrecting the plant
 func resurrect() -> void:
 	state = PlantState.ALIVE
-	sound.play()
+	sfx()
 	animator.play("grow")
 	# TODO: Dialogue event
 
 # Speaks a line
 func speak(line) -> void:
 	Main.emit_signal("started_speaking", line)
+
+func sfx() -> void:
+	Main.emit_signal("play_sfx", "powerup")
 
